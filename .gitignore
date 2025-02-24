@@ -67,3 +67,6 @@ logs
 
 # Local Netlify folder
 .netlify
+
+# Linting
+.eslintcache

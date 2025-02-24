@@ -1,15 +1,6 @@
-import {
-  Box,
-  VStack,
-  Text,
-  Image,
-  Link,
-  Heading,
-  useColorModeValue,
-  Icon,
-} from "@chakra-ui/react";
-import { FaStar } from "react-icons/fa";
-import { useTranslation } from "react-i18next";
+import { Box, VStack, Text, Image, Link, Heading, useColorModeValue, Icon } from '@chakra-ui/react';
+import { FaStar } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 interface SponsorCardProps {
   sponsor: {
@@ -24,13 +15,13 @@ interface SponsorCardProps {
 
 const SponsorCard = ({ sponsor, category }: SponsorCardProps) => {
   const { t } = useTranslation();
-  const cardBg = useColorModeValue("white", "gray.700");
-  const borderColor = useColorModeValue("gray.200", "gray.600");
+  const cardBg = useColorModeValue('white', 'gray.700');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
 
   const categoryColors = {
-    gold: "#FFD700",
-    silver: "#C0C0C0",
-    bronze: "#CD7F32",
+    gold: '#FFD700',
+    silver: '#C0C0C0',
+    bronze: '#CD7F32',
   };
 
   return (
@@ -42,8 +33,8 @@ const SponsorCard = ({ sponsor, category }: SponsorCardProps) => {
       border="1px"
       borderColor={borderColor}
       _hover={{
-        transform: "translateY(-4px)",
-        boxShadow: "lg",
+        transform: 'translateY(-4px)',
+        boxShadow: 'lg',
       }}
       transition="all 0.3s"
       position="relative"
@@ -65,14 +56,7 @@ const SponsorCard = ({ sponsor, category }: SponsorCardProps) => {
       </Box>
 
       <Box position="relative" h="200px">
-        <Image
-          src={sponsor.logo}
-          alt={sponsor.name}
-          objectFit="contain"
-          w="100%"
-          h="100%"
-          p={6}
-        />
+        <Image src={sponsor.logo} alt={sponsor.name} objectFit="contain" w="100%" h="100%" p={6} />
       </Box>
 
       <VStack p={6} spacing={3} align="stretch">
@@ -87,9 +71,9 @@ const SponsorCard = ({ sponsor, category }: SponsorCardProps) => {
           isExternal
           color="blue.500"
           fontWeight="medium"
-          _hover={{ textDecoration: "none", color: "blue.600" }}
+          _hover={{ textDecoration: 'none', color: 'blue.600' }}
         >
-          {t("common.visitWebsite")}
+          {t('common.visitWebsite')}
         </Link>
       </VStack>
     </Box>

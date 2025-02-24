@@ -1,4 +1,5 @@
-import { Event } from "../../types/event";
+import { Event } from '../../types/event';
+import { format } from 'date-fns';
 
 interface EventCardProps {
   event: Event;
@@ -25,12 +26,12 @@ const EventCard = ({ event, compact = false }: EventCardProps) => {
 
       <div className="space-y-2 text-gray-600">
         <p>
-          <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}
+          <strong>Date:</strong> {format(new Date(event.startDateTime), 'PP')}
         </p>
         {!compact && (
           <>
             <p>
-              <strong>Time:</strong> {event.time}
+              <strong>Time:</strong> {format(new Date(event.startDateTime), 'p')}
             </p>
             <p>
               <strong>Location:</strong> {event.location}

@@ -14,7 +14,7 @@ import {
   Button,
   HStack,
   Image,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 import {
   FaFacebook,
   FaInstagram,
@@ -22,19 +22,19 @@ import {
   FaPhone,
   FaEnvelope,
   FaChevronDown,
-} from "react-icons/fa";
-import { useTranslation } from "react-i18next";
+} from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const languages = [
   {
-    code: "en",
-    name: "English",
-    flag: "/images/flags/gb.svg",
+    code: 'en',
+    name: 'English',
+    flag: '/images/flags/gb.svg',
   },
   {
-    code: "it",
-    name: "Italiano",
-    flag: "/images/flags/it.svg",
+    code: 'it',
+    name: 'Italiano',
+    flag: '/images/flags/it.svg',
   },
 ];
 
@@ -46,9 +46,7 @@ const Footer = () => {
   };
 
   const getCurrentLanguage = () => {
-    return (
-      languages.find((lang) => lang.code === i18n.language) || languages[0]
-    );
+    return languages.find((lang) => lang.code === i18n.language) || languages[0];
   };
 
   return (
@@ -60,8 +58,8 @@ const Footer = () => {
             as={Button}
             rightIcon={<FaChevronDown />}
             bg="whiteAlpha.200"
-            _hover={{ bg: "whiteAlpha.300" }}
-            _active={{ bg: "whiteAlpha.400" }}
+            _hover={{ bg: 'whiteAlpha.300' }}
+            _active={{ bg: 'whiteAlpha.400' }}
           >
             <HStack>
               <Image
@@ -80,7 +78,7 @@ const Footer = () => {
                 key={language.code}
                 onClick={() => handleLanguageChange(language.code)}
                 bg="gray.800"
-                _hover={{ bg: "gray.700" }}
+                _hover={{ bg: 'gray.700' }}
               >
                 <HStack>
                   <Image
@@ -103,22 +101,18 @@ const Footer = () => {
           {/* Company Info */}
           <Stack spacing={4}>
             <Heading size="md">DoggyRace</Heading>
-            <Text color="gray.400">{t("footer.tagline")}</Text>
+            <Text color="gray.400">{t('footer.tagline')}</Text>
           </Stack>
 
           {/* Contact Info */}
           <Stack spacing={4}>
-            <Heading size="md">{t("footer.contactUs")}</Heading>
+            <Heading size="md">{t('footer.contactUs')}</Heading>
             <Stack spacing={2}>
               <Link href="tel:(555)123-4567" display="flex" alignItems="center">
                 <Icon as={FaPhone} mr={2} />
                 (555) 123-4567
               </Link>
-              <Link
-                href="mailto:info@doggyrace.com"
-                display="flex"
-                alignItems="center"
-              >
+              <Link href="mailto:info@doggyrace.com" display="flex" alignItems="center">
                 <Icon as={FaEnvelope} mr={2} />
                 info@doggyrace.com
               </Link>
@@ -127,7 +121,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <Stack spacing={4}>
-            <Heading size="md">{t("footer.followUs")}</Heading>
+            <Heading size="md">{t('footer.followUs')}</Heading>
             <Stack direction="row" spacing={4}>
               <Link href="#" aria-label="Facebook">
                 <Icon as={FaFacebook} boxSize={6} />
@@ -143,7 +137,7 @@ const Footer = () => {
         </SimpleGrid>
 
         <Text textAlign="center" color="gray.500" mt={16}>
-          {t("footer.allRightsReserved")}
+          {t('footer.allRightsReserved')}
         </Text>
       </Container>
     </Box>

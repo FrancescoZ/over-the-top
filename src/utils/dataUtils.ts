@@ -1,4 +1,4 @@
-import data from "../../data.json";
+import data from '../../data.json';
 
 export const getEvents = () => data.events;
 
@@ -19,9 +19,5 @@ export const getUpcomingEvents = () => {
   const now = new Date();
   return data.events
     .filter((event) => new Date(event.startDateTime) >= now)
-    .sort(
-      (a, b) =>
-        new Date(a.startDateTime).getTime() -
-        new Date(b.startDateTime).getTime()
-    );
+    .sort((a, b) => new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime());
 };

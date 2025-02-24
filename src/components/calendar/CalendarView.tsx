@@ -1,13 +1,5 @@
-import {
-  Box,
-  Grid,
-  Text,
-  HStack,
-  Button,
-  VStack,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { Box, Grid, Text, HStack, Button, VStack, useColorModeValue } from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
   format,
   startOfMonth,
@@ -16,11 +8,11 @@ import {
   isSameMonth,
   isSameDay,
   isToday,
-} from "date-fns";
-import { it } from "date-fns/locale";
-import { useTranslation } from "react-i18next";
-import EventModal from "../events/EventModal";
-import { useState } from "react";
+} from 'date-fns';
+import { it } from 'date-fns/locale';
+import { useTranslation } from 'react-i18next';
+import EventModal from '../events/EventModal';
+import { useState } from 'react';
 
 interface Event {
   id: string;
@@ -43,13 +35,9 @@ interface CalendarViewProps {
   onDateChange: (date: Date) => void;
 }
 
-const CalendarView = ({
-  events,
-  currentDate,
-  onDateChange,
-}: CalendarViewProps) => {
+const CalendarView = ({ events, currentDate, onDateChange }: CalendarViewProps) => {
   const { i18n } = useTranslation();
-  const dateLocale = i18n.language === "it" ? it : undefined;
+  const dateLocale = i18n.language === 'it' ? it : undefined;
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -57,21 +45,17 @@ const CalendarView = ({
   const end = endOfMonth(currentDate);
   const days = eachDayOfInterval({ start, end });
 
-  const cellBg = useColorModeValue("white", "gray.700");
-  const todayBg = useColorModeValue("blue.50", "blue.900");
-  const eventBg = useColorModeValue("blue.500", "blue.400");
-  const borderColor = useColorModeValue("gray.200", "gray.600");
+  const cellBg = useColorModeValue('white', 'gray.700');
+  const todayBg = useColorModeValue('blue.50', 'blue.900');
+  const eventBg = useColorModeValue('blue.500', 'blue.400');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
 
   const handlePrevMonth = () => {
-    onDateChange(
-      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1)
-    );
+    onDateChange(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
   };
 
   const handleNextMonth = () => {
-    onDateChange(
-      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1)
-    );
+    onDateChange(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
   };
 
   const handleToday = () => {
@@ -91,7 +75,7 @@ const CalendarView = ({
             <ChevronLeftIcon />
           </Button>
           <Text fontSize="xl" fontWeight="bold">
-            {format(currentDate, "MMMM yyyy", { locale: dateLocale })}
+            {format(currentDate, 'MMMM yyyy', { locale: dateLocale })}
           </Text>
           <Button onClick={handleNextMonth} size="sm">
             <ChevronRightIcon />
@@ -103,16 +87,14 @@ const CalendarView = ({
       </HStack>
 
       <Grid templateColumns="repeat(7, 1fr)" gap={2}>
-        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+        {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
           <Box key={day} p={2} textAlign="center" fontWeight="bold">
             {day}
           </Box>
         ))}
 
         {days.map((day) => {
-          const dayEvents = events.filter((event) =>
-            isSameDay(new Date(event.startDateTime), day)
-          );
+          const dayEvents = events.filter((event) => isSameDay(new Date(event.startDateTime), day));
 
           return (
             <Box
@@ -125,7 +107,7 @@ const CalendarView = ({
               opacity={isSameMonth(day, currentDate) ? 1 : 0.5}
             >
               <Text textAlign="center" mb={2}>
-                {format(day, "d")}
+                {format(day, 'd')}
               </Text>
               <VStack spacing={1} align="stretch">
                 {dayEvents.map((event) => (

@@ -8,19 +8,12 @@ import {
   Text,
   VStack,
   HStack,
-  Badge,
   Button,
   Divider,
   Box,
   Icon,
-} from "@chakra-ui/react";
-import {
-  FaClock,
-  FaMapMarkerAlt,
-  FaUser,
-  FaDollarSign,
-  FaInfoCircle,
-} from "react-icons/fa";
+} from '@chakra-ui/react';
+import { FaClock, FaMapMarkerAlt, FaUser, FaDollarSign, FaInfoCircle } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
 interface EventModalProps {
@@ -29,6 +22,7 @@ interface EventModalProps {
   event: {
     title: string;
     startDateTime: string;
+    endDateTime: string;
     location: string;
     description: string;
     category: string;
@@ -42,12 +36,6 @@ interface EventModalProps {
 
 const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
   const { t } = useTranslation();
-
-  const categoryColors = {
-    competition: "blue",
-    training: "green",
-    workshop: "purple",
-  };
 
   const startDate = new Date(event.startDateTime);
   const endDate = new Date(event.endDateTime);
@@ -69,16 +57,8 @@ const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      size="lg"
-      isCentered
-    >
-      <ModalOverlay 
-        bg="blackAlpha.600" 
-        backdropFilter="blur(8px)"
-      />
+    <Modal isOpen={isOpen} onClose={onClose} size="lg" isCentered>
+      <ModalOverlay bg="blackAlpha.600" backdropFilter="blur(8px)" />
       <ModalContent mx={4}>
         <ModalHeader>{event.title}</ModalHeader>
         <ModalCloseButton aria-label={t('common.close')} />

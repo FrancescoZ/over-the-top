@@ -1,7 +1,7 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import enTranslations from "./translations/en.json";
-import itTranslations from "./translations/it.json";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import enTranslations from './translations/en.json';
+import itTranslations from './translations/it.json';
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -12,8 +12,8 @@ i18n.use(initReactI18next).init({
       translation: enTranslations,
     },
   },
-  lng: "it",
-  fallbackLng: "it",
+  lng: 'it',
+  fallbackLng: 'it',
   interpolation: {
     escapeValue: false,
   },

@@ -8,18 +8,23 @@ import {
   Link,
   useDisclosure,
   Flex,
-  HStack,
   Icon,
-} from "@chakra-ui/react";
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import { getUpcomingEvents } from "../../utils/dataUtils";
-import EventModal from "./EventModal";
-import { useState, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Link as RouterLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+} from '@chakra-ui/react';
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import { getUpcomingEvents } from '../../utils/dataUtils';
+import EventModal from './EventModal';
+import { useState, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Event } from '../../types/event';
 
-const EventCard = ({ event, onClick }: { event: any; onClick: () => void }) => {
+interface EventCardProps {
+  event: Event;
+  onClick: () => void;
+}
+
+const EventCard = ({ event, onClick }: EventCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
@@ -28,16 +33,8 @@ const EventCard = ({ event, onClick }: { event: any; onClick: () => void }) => {
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(
-    mouseYSpring,
-    [-0.5, 0.5],
-    ["7.5deg", "-7.5deg"]
-  );
-  const rotateY = useTransform(
-    mouseXSpring,
-    [-0.5, 0.5],
-    ["-7.5deg", "7.5deg"]
-  );
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['7.5deg', '-7.5deg']);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-7.5deg', '7.5deg']);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -64,10 +61,10 @@ const EventCard = ({ event, onClick }: { event: any; onClick: () => void }) => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
+    return date.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
     });
   };
 
@@ -79,7 +76,7 @@ const EventCard = ({ event, onClick }: { event: any; onClick: () => void }) => {
       style={{
         rotateX,
         rotateY,
-        transformStyle: "preserve-3d",
+        transformStyle: 'preserve-3d',
       }}
     >
       <Box
@@ -89,22 +86,16 @@ const EventCard = ({ event, onClick }: { event: any; onClick: () => void }) => {
         boxShadow="lg"
         transition="all 0.2s"
         _hover={{
-          transform: "translateY(-4px)",
-          cursor: "pointer",
+          transform: 'translateY(-4px)',
+          cursor: 'pointer',
         }}
         onClick={onClick}
         style={{
-          transformStyle: "preserve-3d",
+          transformStyle: 'preserve-3d',
         }}
       >
-        <Box style={{ transform: "translateZ(50px)" }}>
-          <Image
-            src={event.image}
-            alt={event.title}
-            h="240px"
-            w="full"
-            objectFit="cover"
-          />
+        <Box style={{ transform: 'translateZ(50px)' }}>
+          <Image src={event.image} alt={event.title} h="240px" w="full" objectFit="cover" />
 
           <VStack align="stretch" p={6} spacing={4}>
             <Text color="blue.500" fontWeight="medium">
@@ -125,7 +116,7 @@ const EventCard = ({ event, onClick }: { event: any; onClick: () => void }) => {
               fontSize="lg"
               display="flex"
               alignItems="center"
-              _hover={{ textDecoration: "none" }}
+              _hover={{ textDecoration: 'none' }}
             >
               Learn More
               <ChevronRightIcon ml={1} />
@@ -140,10 +131,10 @@ const EventCard = ({ event, onClick }: { event: any; onClick: () => void }) => {
 const UpcomingEvents = () => {
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const upcomingEvents = getUpcomingEvents();
 
-  const handleEventClick = (event: any) => {
+  const handleEventClick = (event: Event) => {
     setSelectedEvent(event);
     onOpen();
   };
@@ -153,7 +144,7 @@ const UpcomingEvents = () => {
       <Container maxW="container.xl">
         <Flex justify="space-between" align="center" mb={8}>
           <Text fontSize="3xl" fontWeight="bold">
-            {t("sections.upcomingEvents")}
+            {t('sections.upcomingEvents')}
           </Text>
           <Link
             as={RouterLink}
@@ -162,20 +153,16 @@ const UpcomingEvents = () => {
             alignItems="center"
             color="blue.500"
             fontWeight="medium"
-            _hover={{ textDecoration: "none", color: "blue.600" }}
+            _hover={{ textDecoration: 'none', color: 'blue.600' }}
           >
-            {t("common.viewAllEvents")}
+            {t('common.viewAllEvents')}
             <Icon as={ChevronRightIcon} ml={1} boxSize={5} />
           </Link>
         </Flex>
 
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
           {upcomingEvents.slice(0, 3).map((event) => (
-            <EventCard
-              key={event.id}
-              event={event}
-              onClick={() => handleEventClick(event)}
-            />
+            <EventCard key={event.id} event={event} onClick={() => handleEventClick(event)} />
           ))}
         </SimpleGrid>
 

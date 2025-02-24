@@ -23,4 +23,4 @@ export const placeholderImages = {
 };
 
 // For debugging - log the URLs to make sure they're generating correctly
-console.log("Placeholder Images:", placeholderImages);
+console.log('Placeholder Images:', placeholderImages);

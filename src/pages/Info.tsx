@@ -7,7 +7,7 @@ import {
   VStack,
   Icon,
   useColorModeValue,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 import {
   FaDog,
   FaGraduationCap,
@@ -17,29 +17,25 @@ import {
   FaStar,
   FaHeart,
   FaTrophy,
-} from "react-icons/fa";
-import { useTranslation } from "react-i18next";
-import { settings } from "../../data.json";
-import { lazy } from "react";
+} from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 // Lazy load the Map component
-const Map = lazy(() => import("../components/Map"));
 
 const Info = () => {
   const { t } = useTranslation();
-  const bgColor = useColorModeValue("gray.50", "gray.800");
-  const cardBg = useColorModeValue("white", "gray.700");
-  const { locationData } = settings;
+  const bgColor = useColorModeValue('gray.50', 'gray.800');
+  const cardBg = useColorModeValue('white', 'gray.700');
 
   const courses = [
-    { icon: FaDog, key: "agility" },
-    { icon: FaGraduationCap, key: "obedience" },
-    { icon: FaRunning, key: "rally" },
-    { icon: FaMusic, key: "freestyle" },
-    { icon: FaBone, key: "puppy" },
-    { icon: FaStar, key: "tricks" },
-    { icon: FaHeart, key: "therapy" },
-    { icon: FaTrophy, key: "competition" }
+    { icon: FaDog, key: 'agility' },
+    { icon: FaGraduationCap, key: 'obedience' },
+    { icon: FaRunning, key: 'rally' },
+    { icon: FaMusic, key: 'freestyle' },
+    { icon: FaBone, key: 'puppy' },
+    { icon: FaStar, key: 'tricks' },
+    { icon: FaHeart, key: 'therapy' },
+    { icon: FaTrophy, key: 'competition' },
   ];
 
   return (
@@ -49,10 +45,10 @@ const Info = () => {
         <Container maxW="container.xl">
           <VStack spacing={8} mb={16}>
             <Heading as="h1" size="2xl" textAlign="center">
-              {t("info.courses.title")}
+              {t('info.courses.title')}
             </Heading>
             <Text fontSize="xl" color="gray.600" textAlign="center" maxW="2xl">
-              {t("info.courses.subtitle")}
+              {t('info.courses.subtitle')}
             </Text>
           </VStack>
 
@@ -65,8 +61,8 @@ const Info = () => {
                 borderRadius="lg"
                 boxShadow="md"
                 _hover={{
-                  transform: "translateY(-5px)",
-                  boxShadow: "lg",
+                  transform: 'translateY(-5px)',
+                  boxShadow: 'lg',
                 }}
                 transition="all 0.3s"
               >
@@ -74,9 +70,7 @@ const Info = () => {
                 <Heading as="h3" size="md" mb={4}>
                   {t(`info.courses.${key}.title`)}
                 </Heading>
-                <Text color="gray.600">
-                  {t(`info.courses.${key}.description`)}
-                </Text>
+                <Text color="gray.600">{t(`info.courses.${key}.description`)}</Text>
               </Box>
             ))}
           </SimpleGrid>

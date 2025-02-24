@@ -1,14 +1,6 @@
-import {
-  Box,
-  Heading,
-  Text,
-  Button,
-  VStack,
-  Image,
-  Container,
-} from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { Box, Heading, Text, Button, VStack, Image, Container } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
   const { t } = useTranslation();
@@ -18,7 +10,7 @@ const NotFound = () => {
       <VStack spacing={8} textAlign="center">
         <Image
           src="/images/404-dog.png"
-          alt={t("404.title")}
+          alt={t('404.title')}
           maxW="300px"
           fallback={
             <Box
@@ -35,10 +27,10 @@ const NotFound = () => {
           }
         />
 
-        <Heading size="2xl">{t("404.title")}</Heading>
+        <Heading size="2xl">{t('404.title')}</Heading>
 
         <Text fontSize="xl" color="gray.600">
-          {t("404.message")}
+          {t('404.message')}
         </Text>
 
         <Button
@@ -47,12 +39,12 @@ const NotFound = () => {
           size="lg"
           colorScheme="blue"
           _hover={{
-            transform: "translateY(-2px)",
-            boxShadow: "lg",
+            transform: 'translateY(-2px)',
+            boxShadow: 'lg',
           }}
           transition="all 0.2s"
         >
-          {t("404.backHome")}
+          {t('404.backHome')}
         </Button>
       </VStack>
     </Container>

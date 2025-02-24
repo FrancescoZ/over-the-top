@@ -16,34 +16,28 @@ import {
   DrawerCloseButton,
   Text,
   Icon,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link as RouterLink, useLocation } from "react-router-dom";
-import {
-  FaHome,
-  FaInfoCircle,
-  FaCalendarAlt,
-  FaHandshake,
-  FaEnvelope,
-} from "react-icons/fa";
-import { useTranslation } from "react-i18next";
+} from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { FaHome, FaInfoCircle, FaCalendarAlt, FaHandshake, FaEnvelope } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const bgColor = useColorModeValue("white", "gray.800");
+  const bgColor = useColorModeValue('white', 'gray.800');
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
 
   const navLinks = [
-    { path: "/", label: t("nav.home"), icon: FaHome },
-    { path: "/info", label: t("nav.info"), icon: FaInfoCircle },
-    { path: "/calendar", label: t("nav.raceCalendar"), icon: FaCalendarAlt },
-    { path: "/sponsors", label: t("nav.sponsors"), icon: FaHandshake },
-    { path: "/contact", label: t("nav.contact"), icon: FaEnvelope },
+    { path: '/', label: t('nav.home'), icon: FaHome },
+    { path: '/info', label: t('nav.info'), icon: FaInfoCircle },
+    { path: '/calendar', label: t('nav.raceCalendar'), icon: FaCalendarAlt },
+    { path: '/sponsors', label: t('nav.sponsors'), icon: FaHandshake },
+    { path: '/contact', label: t('nav.contact'), icon: FaEnvelope },
   ];
 
   return (
@@ -60,7 +54,7 @@ const Navbar = () => {
     >
       <Container maxW="container.xl">
         <HStack h="70px" justify="space-between">
-          <Link as={RouterLink} to="/" _hover={{ textDecoration: "none" }}>
+          <Link as={RouterLink} to="/" _hover={{ textDecoration: 'none' }}>
             <HStack spacing={2}>
               <Image
                 src="/images/logo.png"
@@ -79,15 +73,15 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <HStack spacing={8} display={{ base: "none", md: "flex" }}>
+          <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 as={RouterLink}
                 to={link.path}
                 fontWeight="medium"
-                color={isActive(link.path) ? "blue.500" : "gray.600"}
-                _hover={{ color: "blue.500" }}
+                color={isActive(link.path) ? 'blue.500' : 'gray.600'}
+                _hover={{ color: 'blue.500' }}
               >
                 {link.label}
               </Link>
@@ -96,8 +90,8 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <IconButton
-            display={{ base: "flex", md: "none" }}
-            aria-label={t("common.menu")}
+            display={{ base: 'flex', md: 'none' }}
+            aria-label={t('common.menu')}
             icon={<HamburgerIcon />}
             onClick={onOpen}
             variant="ghost"
@@ -142,12 +136,12 @@ const Navbar = () => {
                   p={3}
                   borderRadius="lg"
                   onClick={onClose}
-                  bg={isActive(link.path) ? "blue.50" : "transparent"}
-                  color={isActive(link.path) ? "blue.500" : "gray.700"}
+                  bg={isActive(link.path) ? 'blue.50' : 'transparent'}
+                  color={isActive(link.path) ? 'blue.500' : 'gray.700'}
                   _hover={{
-                    bg: "blue.50",
-                    color: "blue.500",
-                    transform: "translateX(4px)",
+                    bg: 'blue.50',
+                    color: 'blue.500',
+                    transform: 'translateX(4px)',
                   }}
                   transition="all 0.2s"
                 >
@@ -157,7 +151,7 @@ const Navbar = () => {
               ))}
               <Box p={4} bg="gray.50" borderRadius="lg">
                 <Text fontSize="sm" color="gray.600">
-                  {t("common.needHelp")}
+                  {t('common.needHelp')}
                 </Text>
                 <Text fontSize="md" color="blue.500" fontWeight="medium" mt={1}>
                   info@doggyrace.com

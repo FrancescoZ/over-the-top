@@ -1,4 +1,4 @@
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -9,34 +9,15 @@ import {
   Flex,
   VStack,
   Badge,
-} from "@chakra-ui/react";
-import { Event } from "../../types/event";
+} from '@chakra-ui/react';
+import data from '../../../data.json';
+import type { Event } from '@/types/event';
 
 const EventsPreview = () => {
-  // This would typically come from an API or database
-  const upcomingEvents: Event[] = [
-    {
-      id: "1",
-      title: "Beginner Agility Workshop",
-      date: "2024-04-15",
-      location: "Main Training Center",
-      category: "workshop",
-    },
-    {
-      id: "2",
-      title: "Advanced Handling Techniques",
-      date: "2024-04-22",
-      location: "Outdoor Training Field",
-      category: "training",
-    },
-    {
-      id: "3",
-      title: "Spring Competition",
-      date: "2024-04-29",
-      location: "Indoor Training Hall",
-      category: "competition",
-    },
-  ];
+  const { events } = data;
+  const upcomingEvents = events.filter(
+    (event: Event) => new Date(event.startDateTime) > new Date()
+  );
 
   return (
     <Box bg="brand.gray" py={16}>
@@ -55,7 +36,7 @@ const EventsPreview = () => {
             to="/calendar"
             color="brand.yellow"
             fontWeight="semibold"
-            _hover={{ color: "brand.red" }}
+            _hover={{ color: 'brand.red' }}
             transition="color 0.2s"
           >
             View All Events →
@@ -70,7 +51,7 @@ const EventsPreview = () => {
               p={6}
               borderRadius="lg"
               boxShadow="lg"
-              _hover={{ transform: "translateY(-4px)" }}
+              _hover={{ transform: 'translateY(-4px)' }}
               transition="transform 0.2s"
             >
               <VStack align="stretch" spacing={3}>
@@ -80,18 +61,16 @@ const EventsPreview = () => {
                 <Badge
                   alignSelf="flex-start"
                   colorScheme={
-                    event.category === "competition"
-                      ? "red"
-                      : event.category === "training"
-                      ? "yellow"
-                      : "gray"
+                    event.category === 'competition'
+                      ? 'red'
+                      : event.category === 'training'
+                        ? 'yellow'
+                        : 'gray'
                   }
                 >
                   {event.category}
                 </Badge>
-                <Text color="brand.gray">
-                  {new Date(event.date).toLocaleDateString()}
-                </Text>
+                <Text color="brand.gray">{new Date(event.startDateTime).toLocaleDateString()}</Text>
                 <Text color="brand.gray">{event.location}</Text>
               </VStack>
             </Box>

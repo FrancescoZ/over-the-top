@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import RaceCalendar from "./pages/RaceCalendar";
-import Info from "./pages/Info";
-import Sponsors from "./pages/Sponsors";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import RaceCalendar from './pages/RaceCalendar';
+import Info from './pages/Info';
+import Sponsors from './pages/Sponsors';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 const AppRoutes = () => {
   return (
