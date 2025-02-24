@@ -41,16 +41,15 @@ const Navbar = () => {
   ];
 
   return (
-    <Box
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      zIndex={1000}
-      bg={bgColor}
+    <Box 
+      bg={bgColor} 
+      position="sticky" 
+      top={0} 
+      zIndex={1000} 
       boxShadow="sm"
-      borderBottom="1px"
-      borderColor="gray.100"
+      width="100%"
+      margin={0}
+      padding={0}
     >
       <Container maxW="container.xl">
         <HStack h="70px" justify="space-between">

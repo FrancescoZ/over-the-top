@@ -9,19 +9,18 @@ import './i18n'; // Import i18n configuration
 const App = () => {
   return (
     <Router>
-      <Navbar />
-      <Box
-        maxW="1440px"
-        mx="auto"
-        my={4}
-        mt="90px"
-        bg="white"
-        borderRadius="2xl"
-        overflow="hidden"
-        boxShadow="xl"
-      >
-        <AppRoutes />
-        <Footer />
+      <Box minH="100vh" display="flex" flexDirection="column">
+        <Navbar />
+        <Box
+          flex="1"
+          bg="white"
+          borderRadius={{ base: 'none', md: '2xl' }}
+          boxShadow={{ base: 'none', md: 'xl' }}
+          mt={{ base: 0, md: 4 }}
+        >
+          <AppRoutes />
+          <Footer />
+        </Box>
       </Box>
     </Router>
   );

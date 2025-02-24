@@ -102,6 +102,10 @@
       "subtitle": "Visit our training facilities",
       "address": "Address",
       "directions": "Get Directions"
+    },
+    "trainers": {
+      "title": "Our Trainers",
+      "subtitle": "Meet our experienced team of professional dog trainers dedicated to helping you and your dog succeed"
     }
   },
   "sponsors": {

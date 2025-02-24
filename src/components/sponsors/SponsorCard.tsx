@@ -1,82 +1,52 @@
-import { Box, VStack, Text, Image, Link, Heading, useColorModeValue, Icon } from '@chakra-ui/react';
-import { FaStar } from 'react-icons/fa';
+import { Box, Image, Text, Heading, Link, VStack } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 interface SponsorCardProps {
   sponsor: {
-    id: string;
     name: string;
-    description: string;
     logo: string;
     website: string;
+    description: string;
   };
   category: string;
 }
 
 const SponsorCard = ({ sponsor, category }: SponsorCardProps) => {
   const { t } = useTranslation();
-  const cardBg = useColorModeValue('white', 'gray.700');
-  const borderColor = useColorModeValue('gray.200', 'gray.600');
-
-  const categoryColors = {
-    gold: '#FFD700',
-    silver: '#C0C0C0',
-    bronze: '#CD7F32',
-  };
 
   return (
-    <Box
-      bg={cardBg}
-      borderRadius="lg"
-      overflow="hidden"
-      boxShadow="md"
-      border="1px"
-      borderColor={borderColor}
-      _hover={{
-        transform: 'translateY(-4px)',
-        boxShadow: 'lg',
-      }}
-      transition="all 0.3s"
-      position="relative"
-    >
+    <Link href={sponsor.website} isExternal _hover={{ textDecoration: 'none' }}>
       <Box
-        position="absolute"
-        top={4}
-        right={4}
-        display="flex"
-        alignItems="center"
-        gap={1}
-        bg={`${categoryColors[category as keyof typeof categoryColors]}20`}
-        color={categoryColors[category as keyof typeof categoryColors]}
-        borderRadius="full"
-        px={3}
-        py={1}
+        p={6}
+        bg="white"
+        borderRadius="lg"
+        boxShadow="md"
+        _hover={{
+          transform: 'translateY(-5px)',
+          boxShadow: 'lg',
+        }}
+        transition="all 0.3s"
+        minW={{ base: '260px', md: 'auto' }}
       >
-        <Icon as={FaStar} />
+        <Box width="100%" height={{ base: '200px', md: '250px' }} position="relative" mb={4}>
+          <Image
+            src={sponsor.logo}
+            alt={sponsor.name}
+            objectFit="cover"
+            width="100%"
+            height="100%"
+            borderRadius="md"
+          />
+        </Box>
+        <VStack spacing={2} align="start">
+          <Heading size="md">{sponsor.name}</Heading>
+          <Text fontSize="sm" color="blue.500" textTransform="uppercase" fontWeight="bold">
+            {category} {t('common.sponsor')}
+          </Text>
+          <Text color="gray.600">{sponsor.description}</Text>
+        </VStack>
       </Box>
-
-      <Box position="relative" h="200px">
-        <Image src={sponsor.logo} alt={sponsor.name} objectFit="contain" w="100%" h="100%" p={6} />
-      </Box>
-
-      <VStack p={6} spacing={3} align="stretch">
-        <Heading as="h3" size="md">
-          {sponsor.name}
-        </Heading>
-        <Text color="gray.600" noOfLines={3}>
-          {sponsor.description}
-        </Text>
-        <Link
-          href={sponsor.website}
-          isExternal
-          color="blue.500"
-          fontWeight="medium"
-          _hover={{ textDecoration: 'none', color: 'blue.600' }}
-        >
-          {t('common.visitWebsite')}
-        </Link>
-      </VStack>
-    </Box>
+    </Link>
   );
 };
 

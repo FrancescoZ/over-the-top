@@ -57,11 +57,16 @@ const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="lg" isCentered>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      size={{ base: 'full', md: 'lg' }}
+      motionPreset="slideInBottom"
+    >
       <ModalOverlay bg="blackAlpha.600" backdropFilter="blur(8px)" />
-      <ModalContent mx={4}>
-        <ModalHeader>{event.title}</ModalHeader>
-        <ModalCloseButton aria-label={t('common.close')} />
+      <ModalContent mx={{ base: 0, md: 4 }}>
+        <ModalHeader fontSize={{ base: 'xl', md: '2xl' }}>{event.title}</ModalHeader>
+        <ModalCloseButton />
         <ModalBody pb={6}>
           <VStack align="stretch" spacing={6}>
             <Box>
@@ -97,7 +102,7 @@ const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
 
             <Box>
               <Text fontWeight="semibold" fontSize="lg" mb={3}>
-                Description
+                {t('events.description')}
               </Text>
               <Text color="gray.600" fontSize="md" lineHeight="tall">
                 {event.description}
@@ -107,7 +112,7 @@ const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
             {event.requirements && (
               <Box>
                 <Text fontWeight="semibold" fontSize="lg" mb={3}>
-                  Requirements
+                  {t('events.requirements')}
                 </Text>
                 <VStack align="stretch" spacing={2}>
                   {event.requirements.map((req, index) => (
@@ -121,7 +126,7 @@ const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
 
             <Box bg="gray.50" p={5} borderRadius="md">
               <Text fontWeight="semibold" fontSize="lg" mb={2}>
-                Capacity
+                {t('events.capacity')}
               </Text>
               <Text color="gray.600" fontSize="md">
                 {event.currentParticipants} / {event.capacity} participants
@@ -136,7 +141,7 @@ const EventModal = ({ isOpen, onClose, event }: EventModalProps) => {
               onClick={onClose}
               mt={2}
             >
-              Close Info
+              {t('events.close')}
             </Button>
           </VStack>
         </ModalBody>

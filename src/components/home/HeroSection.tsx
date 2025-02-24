@@ -5,42 +5,67 @@ import { useTranslation } from 'react-i18next';
 const HeroSection = () => {
   const { t } = useTranslation();
   return (
-    <Box
-      h="600px"
-      position="relative"
-      bgImage="url('https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47')"
-      bgPosition="center"
-      bgSize="cover"
-      _before={{
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        bg: 'rgba(0, 0, 0, 0.4)',
-      }}
-    >
-      <Container maxW="7xl" h="full" position="relative" display="flex" alignItems="center">
-        <VStack maxW="2xl" align="flex-start" spacing={6} color="white">
-          <Heading as="h1" size="2xl" lineHeight="1.2" fontWeight="bold">
+    <Box position="relative" h={{ base: '100vh', md: '80vh' }} w="100%" overflow="hidden">
+      {/* Background Image */}
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        bgImage="url('https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47')"        bgPosition="center"
+        bgSize="cover"
+        _after={{
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          bg: 'blackAlpha.600', // Darker overlay for better text readability
+        }}
+      />
+
+      {/* Content */}
+      <Container
+        maxW="container.xl"
+        h="100%"
+        position="relative"
+        zIndex={1}
+        px={{ base: 6, md: 8 }}
+      >
+        <VStack h="100%" justify="center" align="flex-start" spacing={{ base: 6, md: 8 }}>
+          <Heading
+            color="white"
+            fontSize={{ base: '3xl', md: '5xl' }}
+            fontWeight="bold"
+            lineHeight="shorter"
+            maxW={{ base: '100%', md: '80%' }}
+            textShadow="0 2px 4px rgba(0,0,0,0.3)"
+          >
             {t('hero.title')}
           </Heading>
-          <Text fontSize="xl" lineHeight="1.6">
-            {t('hero.description')}
+
+          <Text
+            color="white"
+            fontSize={{ base: 'lg', md: 'xl' }}
+            maxW={{ base: '100%', md: '70%' }}
+            textShadow="0 1px 2px rgba(0,0,0,0.3)"
+            lineHeight="tall"
+          >
+            {t('hero.subtitle')}
           </Text>
+
           <Button
             as={RouterLink}
             to="/info"
-            size="lg"
-            bg="blue.500"
-            color="white"
-            px={8}
-            _hover={{
-              bg: 'blue.600',
-            }}
+            size={{ base: 'lg', md: 'xl' }}
+            colorScheme="blue"
+            px={{ base: 8, md: 10 }}
+            fontSize={{ base: 'md', md: 'lg' }}
           >
-            {t('hero.learnMore')}
+                {t('hero.learnMore')}
+
           </Button>
         </VStack>
       </Container>

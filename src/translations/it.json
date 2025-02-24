@@ -103,6 +103,10 @@
       "subtitle": "Visita le nostre strutture di addestramento",
       "address": "Indirizzo",
       "directions": "Indicazioni Stradali"
+    },
+    "trainers": {
+      "title": "I Nostri Istruttori",
+      "subtitle": "Incontra il nostro team di istruttori cinofili professionisti dedicati al successo tuo e del tuo cane"
     }
   },
   "sponsors": {

@@ -35,10 +35,20 @@ const theme = extendTheme({
   },
   styles: {
     global: {
-      body: {
-        bg: 'gray.100',
-        minH: '100vh',
-        p: 4,
+      'html, body': {
+        padding: 0,
+        margin: 0,
+        width: '100%',
+        minWidth: '100%',
+        backgroundColor: 'white',
+      },
+      '.chakra-ui-light': {
+        padding: 0,
+        margin: 0,
+      },
+      '.chakra-ui-dark': {
+        padding: 0,
+        margin: 0,
       },
     },
   },

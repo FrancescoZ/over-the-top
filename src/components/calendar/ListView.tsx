@@ -1,19 +1,29 @@
-import { Box, Table, Thead, Tbody, Tr, Th, Td, Badge } from '@chakra-ui/react';
+import {
+  Box,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  useColorModeValue,
+  VStack,
+  Text,
+  HStack,
+  Badge,
+} from '@chakra-ui/react';
 import { format } from 'date-fns';
-import { it } from 'date-fns/locale';
 import { useTranslation } from 'react-i18next';
+import { Event } from '../../types/event';
 import EventModal from '../events/EventModal';
 import { useState } from 'react';
-import { Event } from '../../types/event';
 
 interface ListViewProps {
   events: Event[];
 }
 
 const ListView = ({ events }: ListViewProps) => {
-  const { t, i18n } = useTranslation();
-  const dateLocale = i18n.language === 'it' ? it : undefined;
-
+  const { t } = useTranslation();
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -22,62 +32,92 @@ const ListView = ({ events }: ListViewProps) => {
     setIsModalOpen(true);
   };
 
-  return (
-    <Box>
-      <Table variant="simple">
-        <Thead>
-          <Tr>
-            <Th>{t('calendar.event.date')}</Th>
-            <Th>{t('calendar.event.time')}</Th>
-            <Th>{t('calendar.event.location')}</Th>
-            <Th>{t('calendar.event.instructor')}</Th>
-            <Th>{t('calendar.event.capacity')}</Th>
-            <Th>{t('calendar.event.price')}</Th>
-            <Th>{t('calendar.event.status')}</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {events.map((event) => {
-            const startDate = new Date(event.startDateTime);
-            const spotsLeft = event.capacity - event.currentParticipants;
-            const isSoldOut = spotsLeft === 0;
+  // Mobile card view for each event
+  const EventCard = ({ event }: { event: Event }) => (
+    <Box
+      p={4}
+      bg={useColorModeValue('white', 'gray.800')}
+      borderRadius="lg"
+      shadow="sm"
+      borderWidth="1px"
+      onClick={() => handleEventClick(event)}
+      cursor="pointer"
+      _hover={{ bg: useColorModeValue('gray.50', 'gray.700') }}
+    >
+      <VStack align="stretch" spacing={3}>
+        <Text fontWeight="bold" fontSize="lg">
+          {event.title}
+        </Text>
 
-            return (
+        <HStack justify="space-between">
+          <Text fontSize="sm" color="gray.500">
+            {format(new Date(event.startDateTime), 'PPP')}
+          </Text>
+          <Badge colorScheme="blue">{format(new Date(event.startDateTime), 'p')}</Badge>
+        </HStack>
+
+        <HStack justify="space-between">
+          <Text fontSize="sm">{event.location}</Text>
+          <Text fontSize="sm" fontWeight="bold">
+            ${event.price}
+          </Text>
+        </HStack>
+
+        <HStack justify="space-between">
+          <Text fontSize="sm">{event.instructor}</Text>
+          <Text fontSize="sm">
+            {event.currentParticipants}/{event.capacity}
+          </Text>
+        </HStack>
+      </VStack>
+    </Box>
+  );
+
+  return (
+    <Box width="100%" overflowX="hidden">
+      {/* Desktop view */}
+      <Box display={{ base: 'none', md: 'block' }}>
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>{t('calendar.event.date')}</Th>
+              <Th>{t('calendar.event.time')}</Th>
+              <Th>{t('calendar.event.title')}</Th>
+              <Th>{t('calendar.event.location')}</Th>
+              <Th>{t('calendar.event.instructor')}</Th>
+              <Th isNumeric>{t('calendar.event.capacity')}</Th>
+              <Th isNumeric>{t('calendar.event.price')}</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {events.map((event: Event) => (
               <Tr
                 key={event.id}
                 onClick={() => handleEventClick(event)}
                 cursor="pointer"
-                _hover={{ bg: 'gray.50' }}
+                _hover={{ bg: 'gray.50', _dark: { bg: 'gray.700' } }}
               >
-                <Td>{format(startDate, 'PPP', { locale: dateLocale })}</Td>
-                <Td>{format(startDate, 'p', { locale: dateLocale })}</Td>
+                <Td>{format(new Date(event.startDateTime), 'PP')}</Td>
+                <Td>{format(new Date(event.startDateTime), 'p')}</Td>
+                <Td>{event.title}</Td>
                 <Td>{event.location}</Td>
                 <Td>{event.instructor}</Td>
-                <Td>
-                  {event.currentParticipants} / {event.capacity}
+                <Td isNumeric>
+                  {event.currentParticipants}/{event.capacity}
                 </Td>
-                <Td>${event.price}</Td>
-                <Td>
-                  <Badge
-                    colorScheme={isSoldOut ? 'red' : spotsLeft <= 5 ? 'yellow' : 'green'}
-                    borderRadius="full"
-                    px={3}
-                    py={1}
-                  >
-                    {isSoldOut
-                      ? t('calendar.event.spots.full')
-                      : spotsLeft <= 5
-                        ? t('calendar.event.spots.left', { count: spotsLeft })
-                        : t('calendar.event.spots.available', {
-                            count: spotsLeft,
-                          })}
-                  </Badge>
-                </Td>
+                <Td isNumeric>${event.price}</Td>
               </Tr>
-            );
-          })}
-        </Tbody>
-      </Table>
+            ))}
+          </Tbody>
+        </Table>
+      </Box>
+
+      {/* Mobile view */}
+      <VStack display={{ base: 'flex', md: 'none' }} spacing={4} align="stretch" px={4} pb={4}>
+        {events.map((event: Event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
+      </VStack>
 
       {selectedEvent && (
         <EventModal

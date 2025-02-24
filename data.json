@@ -7,7 +7,7 @@
       "endDateTime": "2025-03-15T17:00:00",
       "location": "Main Arena",
       "description": "Join us for our annual spring championship featuring top competitors from across the region.",
-      "image": "/images/events/spring-championship.jpg",
+      "image": "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6",
       "category": "competition",
       "capacity": 50,
       "currentParticipants": 35,
@@ -26,7 +26,7 @@
       "endDateTime": "2025-04-02T14:00:00",
       "location": "Training Field B",
       "description": "Perfect for newcomers! Learn the basics of agility training with experienced instructors.",
-      "image": "/images/events/beginners-workshop.jpg",
+      "image": "https://images.unsplash.com/photo-1587300003388-59208cc962cb",
       "category": "workshop",
       "capacity": 20,
       "currentParticipants": 15,
@@ -45,7 +45,7 @@
       "endDateTime": "2025-05-20T18:00:00",
       "location": "Main Competition Arena",
       "description": "The biggest event of the season! Don't miss your chance to qualify for nationals.",
-      "image": "/images/events/national-qualifier.jpg",
+      "image": "https://images.unsplash.com/photo-1534361960057-19889db9621e",
       "category": "competition",
       "capacity": 100,
       "currentParticipants": 75,
@@ -81,14 +81,14 @@
       {
         "id": "1",
         "name": "PawPerfect",
-        "logo": "/sponsors/pawperfect.png",
+        "logo": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1",
         "website": "https://pawperfect.example.com",
         "description": "Premium dog food and accessories"
       },
       {
         "id": "2",
         "name": "BarkBuddy",
-        "logo": "/sponsors/barkbuddy.png",
+        "logo": "https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a",
         "website": "https://barkbuddy.example.com",
         "description": "Training equipment specialist"
       }
@@ -97,7 +97,7 @@
       {
         "id": "3",
         "name": "DoggyTech",
-        "logo": "/sponsors/doggytech.png",
+        "logo": "https://images.unsplash.com/photo-1544568100-847a948585b9",
         "website": "https://doggytech.example.com",
         "description": "Smart collars and tracking devices"
       }
@@ -106,7 +106,7 @@
       {
         "id": "4",
         "name": "PetPro",
-        "logo": "/sponsors/petpro.png",
+        "logo": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e",
         "website": "https://petpro.example.com",
         "description": "Professional grooming products"
       }
@@ -118,11 +118,7 @@
       "title": "A Tale of Second Chances",
       "description": "Meet Max, our star agility competitor who started his journey in a local shelter. From uncertain beginnings to championship victories, Max's story inspires us all.",
       "image": "/stories/max.jpg",
-      "achievements": [
-        "Regional Champion 2023",
-        "Most Improved Award 2022",
-        "Rescue Success Story"
-      ]
+      "achievements": ["Regional Champion 2023", "Most Improved Award 2022", "Rescue Success Story"]
     },
     {
       "id": "2",
@@ -141,7 +137,7 @@
       "address": "Via Roma 123, 20019 Milano, Italy",
       "coordinates": {
         "lat": 45.4642,
-        "lng": 9.1900
+        "lng": 9.19
       },
       "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
     },
@@ -154,5 +150,34 @@
       "instagram": "https://instagram.com/doggyrace",
       "facebook": "https://facebook.com/doggyrace"
     }
-  }
+  },
+  "trainers": [
+    {
+      "id": "1",
+      "name": "Sarah Johnson",
+      "image": "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8",
+      "description": {
+        "en": "Certified professional dog trainer with over 10 years of experience in agility and competition training.",
+        "it": "Istruttore cinofilo professionista certificato con oltre 10 anni di esperienza in agility e allenamento per le competizioni."
+      }
+    },
+    {
+      "id": "2",
+      "name": "Mike Peters",
+      "image": "https://images.unsplash.com/photo-1628148061873-9102d8c1e6c1",
+      "description": {
+        "en": "Specializes in beginner training and puppy development. Known for his patient and encouraging teaching style.",
+        "it": "Specializzato nell'addestramento per principianti e nello sviluppo dei cuccioli. Noto per il suo stile di insegnamento paziente e incoraggiante."
+      }
+    },
+    {
+      "id": "3",
+      "name": "Lisa Anderson",
+      "image": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b",
+      "description": {
+        "en": "National champion trainer focusing on advanced techniques and competition preparation.",
+        "it": "Istruttore campione nazionale specializzato in tecniche avanzate e preparazione alle competizioni."
+      }
+    }
+  ]
 }

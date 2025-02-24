@@ -1,4 +1,13 @@
-import { Box, Grid, Text, HStack, Button, VStack, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Grid,
+  Text,
+  HStack,
+  Button,
+  VStack,
+  useColorModeValue,
+  IconButton,
+} from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
   format,
@@ -68,69 +77,102 @@ const CalendarView = ({ events, currentDate, onDateChange }: CalendarViewProps) 
   };
 
   return (
-    <Box>
-      <HStack justify="space-between" mb={4}>
-        <HStack>
-          <Button onClick={handlePrevMonth} size="sm">
-            <ChevronLeftIcon />
-          </Button>
-          <Text fontSize="xl" fontWeight="bold">
+    <Box width="100%" overflowX="hidden">
+      <HStack
+        justify="space-between"
+        mb={6}
+        flexDir={{ base: 'column', sm: 'row' }}
+        spacing={{ base: 4, sm: 2 }}
+        w="full"
+        px={4}
+      >
+        <HStack spacing={4} justify="center" w="full">
+          <IconButton
+            aria-label="Previous month"
+            icon={<ChevronLeftIcon />}
+            onClick={handlePrevMonth}
+            size="md"
+          />
+          <Text fontSize={{ base: 'xl', md: '2xl' }} fontWeight="bold" textAlign="center">
             {format(currentDate, 'MMMM yyyy', { locale: dateLocale })}
           </Text>
-          <Button onClick={handleNextMonth} size="sm">
-            <ChevronRightIcon />
-          </Button>
+          <IconButton
+            aria-label="Next month"
+            icon={<ChevronRightIcon />}
+            onClick={handleNextMonth}
+            size="md"
+          />
         </HStack>
-        <Button onClick={handleToday} size="sm" colorScheme="blue">
+        <Button onClick={handleToday} size="md" colorScheme="blue" w={{ base: 'full', sm: 'auto' }}>
           Today
         </Button>
       </HStack>
 
-      <Grid templateColumns="repeat(7, 1fr)" gap={2}>
-        {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-          <Box key={day} p={2} textAlign="center" fontWeight="bold">
-            {day}
-          </Box>
-        ))}
-
-        {days.map((day) => {
-          const dayEvents = events.filter((event) => isSameDay(new Date(event.startDateTime), day));
-
-          return (
+      <Box
+        width="100%"
+        overflowX="auto"
+        sx={{
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+          scrollbarWidth: 'none',
+        }}
+      >
+        <Grid templateColumns="repeat(7, minmax(40px, 1fr))" gap={1} width="100%" px={2}>
+          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
             <Box
-              key={day.toISOString()}
+              key={day}
               p={2}
-              bg={isToday(day) ? todayBg : cellBg}
-              borderRadius="md"
-              border="1px"
-              borderColor={borderColor}
-              opacity={isSameMonth(day, currentDate) ? 1 : 0.5}
+              textAlign="center"
+              fontWeight="bold"
+              fontSize={{ base: 'xs', md: 'sm' }}
             >
-              <Text textAlign="center" mb={2}>
-                {format(day, 'd')}
-              </Text>
-              <VStack spacing={1} align="stretch">
-                {dayEvents.map((event) => (
-                  <Box
-                    key={event.id}
-                    bg={eventBg}
-                    color="white"
-                    p={1}
-                    borderRadius="sm"
-                    fontSize="xs"
-                    noOfLines={1}
-                    cursor="pointer"
-                    onClick={() => handleEventClick(event)}
-                    _hover={{ opacity: 0.8 }}
-                  >
-                    {event.title}
-                  </Box>
-                ))}
-              </VStack>
+              {day}
             </Box>
-          );
-        })}
-      </Grid>
+          ))}
+
+          {days.map((day) => {
+            const dayEvents = events.filter((event) =>
+              isSameDay(new Date(event.startDateTime), day)
+            );
+
+            return (
+              <Box
+                key={day.toISOString()}
+                p={1}
+                bg={isToday(day) ? todayBg : cellBg}
+                borderRadius="md"
+                border="1px"
+                borderColor={borderColor}
+                opacity={isSameMonth(day, currentDate) ? 1 : 0.5}
+                minH={{ base: '40px', md: '80px' }}
+              >
+                <Text textAlign="center" fontSize={{ base: 'xs', md: 'sm' }} mb={1}>
+                  {format(day, 'd')}
+                </Text>
+                <VStack spacing={1} align="stretch">
+                  {dayEvents.map((event) => (
+                    <Box
+                      key={event.id}
+                      bg={eventBg}
+                      color="white"
+                      p={1}
+                      borderRadius="sm"
+                      fontSize="xs"
+                      noOfLines={1}
+                      cursor="pointer"
+                      onClick={() => handleEventClick(event)}
+                      _hover={{ opacity: 0.8 }}
+                    >
+                      {event.title}
+                    </Box>
+                  ))}
+                </VStack>
+              </Box>
+            );
+          })}
+        </Grid>
+      </Box>
 
       {selectedEvent && (
         <EventModal

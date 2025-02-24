@@ -7,13 +7,6 @@ import {
   Heading,
   Link,
   Icon,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Button,
-  HStack,
-  Image,
 } from '@chakra-ui/react';
 import {
   FaFacebook,
@@ -21,82 +14,23 @@ import {
   FaTwitter,
   FaPhone,
   FaEnvelope,
-  FaChevronDown,
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-
-const languages = [
-  {
-    code: 'en',
-    name: 'English',
-    flag: '/images/flags/gb.svg',
-  },
-  {
-    code: 'it',
-    name: 'Italiano',
-    flag: '/images/flags/it.svg',
-  },
-];
+import data from '../../../data.json';
+import LanguageSelector from './LanguageSelector';
 
 const Footer = () => {
-  const { t, i18n } = useTranslation();
-
-  const handleLanguageChange = (langCode: string) => {
-    i18n.changeLanguage(langCode);
-  };
-
-  const getCurrentLanguage = () => {
-    return languages.find((lang) => lang.code === i18n.language) || languages[0];
-  };
+  const { t } = useTranslation();
+  const { settings } = data;
 
   return (
     <Box bg="gray.900" color="white" py={16} position="relative">
       {/* Language Switcher - Positioned Absolutely */}
       <Box position="absolute" top={4} right={4}>
-        <Menu>
-          <MenuButton
-            as={Button}
-            rightIcon={<FaChevronDown />}
-            bg="whiteAlpha.200"
-            _hover={{ bg: 'whiteAlpha.300' }}
-            _active={{ bg: 'whiteAlpha.400' }}
-          >
-            <HStack>
-              <Image
-                src={getCurrentLanguage().flag}
-                alt={getCurrentLanguage().name}
-                boxSize="20px"
-                objectFit="cover"
-                borderRadius="full"
-              />
-              <Text>{getCurrentLanguage().name}</Text>
-            </HStack>
-          </MenuButton>
-          <MenuList bg="gray.800" borderColor="gray.700">
-            {languages.map((language) => (
-              <MenuItem
-                key={language.code}
-                onClick={() => handleLanguageChange(language.code)}
-                bg="gray.800"
-                _hover={{ bg: 'gray.700' }}
-              >
-                <HStack>
-                  <Image
-                    src={language.flag}
-                    alt={language.name}
-                    boxSize="20px"
-                    objectFit="cover"
-                    borderRadius="full"
-                  />
-                  <Text>{language.name}</Text>
-                </HStack>
-              </MenuItem>
-            ))}
-          </MenuList>
-        </Menu>
+        <LanguageSelector />
       </Box>
 
-      <Container maxW="container.xl">
+      <Container>
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
           {/* Company Info */}
           <Stack spacing={4}>
@@ -123,11 +57,11 @@ const Footer = () => {
           <Stack spacing={4}>
             <Heading size="md">{t('footer.followUs')}</Heading>
             <Stack direction="row" spacing={4}>
-              <Link href="#" aria-label="Facebook">
-                <Icon as={FaFacebook} boxSize={6} />
-              </Link>
-              <Link href="#" aria-label="Instagram">
+              <Link href={settings.socialMedia.instagram} isExternal>
                 <Icon as={FaInstagram} boxSize={6} />
+              </Link>
+              <Link href={settings.socialMedia.facebook} isExternal>
+                <Icon as={FaFacebook} boxSize={6} />
               </Link>
               <Link href="#" aria-label="Twitter">
                 <Icon as={FaTwitter} boxSize={6} />

@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   SimpleGrid,
   VStack,
   Text,
@@ -18,6 +17,8 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Event } from '../../types/event';
+import ScrollIndicator from '../common/ScrollIndicator';
+import ScrollContainer from '../common/ScrollContainer';
 
 interface EventCardProps {
   event: Event;
@@ -93,27 +94,36 @@ const EventCard = ({ event, onClick }: EventCardProps) => {
         style={{
           transformStyle: 'preserve-3d',
         }}
+        w={{ base: '280px', md: 'full' }}
       >
         <Box style={{ transform: 'translateZ(50px)' }}>
-          <Image src={event.image} alt={event.title} h="240px" w="full" objectFit="cover" />
+          <Box width="100%" height={{ base: '180px', md: '240px' }} position="relative">
+            <Image
+              src={event.image}
+              alt={event.title}
+              objectFit="cover"
+              width="100%"
+              height="100%"
+            />
+          </Box>
 
-          <VStack align="stretch" p={6} spacing={4}>
-            <Text color="blue.500" fontWeight="medium">
+          <VStack align="stretch" p={{ base: 4, md: 6 }} spacing={4}>
+            <Text color="blue.500" fontWeight="medium" fontSize={{ base: 'sm', md: 'md' }}>
               {formatDate(event.startDateTime)}
             </Text>
 
-            <Text fontSize="lg" fontWeight="bold">
+            <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight="bold">
               {event.title}
             </Text>
 
-            <Text color="gray.600" fontSize="lg">
+            <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }}>
               {event.description}
             </Text>
 
             <Link
               color="blue.500"
               fontWeight="medium"
-              fontSize="lg"
+              fontSize={{ base: 'sm', md: 'md' }}
               display="flex"
               alignItems="center"
               _hover={{ textDecoration: 'none' }}
@@ -140,9 +150,9 @@ const UpcomingEvents = () => {
   };
 
   return (
-    <Box py={12} px={{ base: 8, md: 16 }}>
-      <Container maxW="container.xl">
-        <Flex justify="space-between" align="center" mb={8}>
+    <Box py={12}>
+      <ScrollContainer>
+        <Flex justify="space-between" align="center" mb={8} px={8}>
           <Text fontSize="3xl" fontWeight="bold">
             {t('sections.upcomingEvents')}
           </Text>
@@ -160,11 +170,37 @@ const UpcomingEvents = () => {
           </Link>
         </Flex>
 
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-          {upcomingEvents.slice(0, 3).map((event) => (
-            <EventCard key={event.id} event={event} onClick={() => handleEventClick(event)} />
-          ))}
-        </SimpleGrid>
+        <Box width="100%" position="relative" overflow="hidden">
+          <ScrollIndicator />
+
+          <Box
+            overflowX={{ base: 'auto', md: 'visible' }}
+            overflowY="hidden"
+            pb={{ base: 4, md: 0 }}
+            px={8}
+            css={{
+              '&::-webkit-scrollbar': {
+                display: 'none',
+              },
+              '-ms-overflow-style': 'none',
+              'scrollbar-width': 'none',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
+            <Flex
+              display={{ base: 'flex', md: 'grid' }}
+              as={SimpleGrid}
+              columns={{ base: 1, md: 2, lg: 3 }}
+              spacing={8}
+              w={{ base: 'max-content', md: '100%' }}
+              gap={8}
+            >
+              {upcomingEvents.slice(0, 3).map((event) => (
+                <EventCard key={event.id} event={event} onClick={() => handleEventClick(event)} />
+              ))}
+            </Flex>
+          </Box>
+        </Box>
 
         {selectedEvent && (
           <EventModal
@@ -176,7 +212,7 @@ const UpcomingEvents = () => {
             event={selectedEvent}
           />
         )}
-      </Container>
+      </ScrollContainer>
     </Box>
   );
 };
