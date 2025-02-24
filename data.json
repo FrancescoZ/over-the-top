@@ -1,0 +1,158 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "Spring Championship",
+      "startDateTime": "2025-03-15T09:00:00",
+      "endDateTime": "2025-03-15T17:00:00",
+      "location": "Main Arena",
+      "description": "Join us for our annual spring championship featuring top competitors from across the region.",
+      "image": "/images/events/spring-championship.jpg",
+      "category": "competition",
+      "capacity": 50,
+      "currentParticipants": 35,
+      "price": 75.0,
+      "instructor": "Sarah Johnson",
+      "requirements": [
+        "Dog must be at least 1 year old",
+        "Up-to-date vaccinations",
+        "Basic obedience training completed"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Beginner's Workshop",
+      "startDateTime": "2025-04-02T10:00:00",
+      "endDateTime": "2025-04-02T14:00:00",
+      "location": "Training Field B",
+      "description": "Perfect for newcomers! Learn the basics of agility training with experienced instructors.",
+      "image": "/images/events/beginners-workshop.jpg",
+      "category": "workshop",
+      "capacity": 20,
+      "currentParticipants": 15,
+      "price": 45.0,
+      "instructor": "Mike Peters",
+      "requirements": [
+        "No prior experience needed",
+        "Dog must be at least 6 months old",
+        "Up-to-date vaccinations"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "National Qualifier",
+      "startDateTime": "2025-05-20T09:00:00",
+      "endDateTime": "2025-05-20T18:00:00",
+      "location": "Main Competition Arena",
+      "description": "The biggest event of the season! Don't miss your chance to qualify for nationals.",
+      "image": "/images/events/national-qualifier.jpg",
+      "category": "competition",
+      "capacity": 100,
+      "currentParticipants": 75,
+      "price": 95.0,
+      "instructor": "Lisa Anderson",
+      "requirements": [
+        "Previous competition experience required",
+        "Dog must be at least 1 year old",
+        "Up-to-date vaccinations",
+        "Qualifying scores from regional events"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "competition",
+      "name": "Competition",
+      "color": "blue.500"
+    },
+    {
+      "id": "training",
+      "name": "Training",
+      "color": "green.500"
+    },
+    {
+      "id": "workshop",
+      "name": "Workshop",
+      "color": "purple.500"
+    }
+  ],
+  "sponsors": {
+    "gold": [
+      {
+        "id": "1",
+        "name": "PawPerfect",
+        "logo": "/sponsors/pawperfect.png",
+        "website": "https://pawperfect.example.com",
+        "description": "Premium dog food and accessories"
+      },
+      {
+        "id": "2",
+        "name": "BarkBuddy",
+        "logo": "/sponsors/barkbuddy.png",
+        "website": "https://barkbuddy.example.com",
+        "description": "Training equipment specialist"
+      }
+    ],
+    "silver": [
+      {
+        "id": "3",
+        "name": "DoggyTech",
+        "logo": "/sponsors/doggytech.png",
+        "website": "https://doggytech.example.com",
+        "description": "Smart collars and tracking devices"
+      }
+    ],
+    "bronze": [
+      {
+        "id": "4",
+        "name": "PetPro",
+        "logo": "/sponsors/petpro.png",
+        "website": "https://petpro.example.com",
+        "description": "Professional grooming products"
+      }
+    ]
+  },
+  "successStories": [
+    {
+      "id": "1",
+      "title": "A Tale of Second Chances",
+      "description": "Meet Max, our star agility competitor who started his journey in a local shelter. From uncertain beginnings to championship victories, Max's story inspires us all.",
+      "image": "/stories/max.jpg",
+      "achievements": [
+        "Regional Champion 2023",
+        "Most Improved Award 2022",
+        "Rescue Success Story"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Luna's Journey to Excellence",
+      "description": "Luna and her owner Sarah showcase how dedication and proper training can transform a hyperactive puppy into a focused agility champion.",
+      "image": "/stories/luna.jpg",
+      "achievements": [
+        "National Finalist 2023",
+        "Perfect Score in Advanced Course",
+        "Youth Handler Award"
+      ]
+    }
+  ],
+  "settings": {
+    "locationData": {
+      "address": "Via Roma 123, 20019 Milano, Italy",
+      "coordinates": {
+        "lat": 45.4642,
+        "lng": 9.1900
+      },
+      "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+    },
+    "eventCapacityDefault": 30,
+    "currency": "USD",
+    "timeZone": "America/New_York",
+    "contactEmail": "info@doggyrace.example.com",
+    "contactPhone": "+1 (234) 567-8900",
+    "socialMedia": {
+      "instagram": "https://instagram.com/doggyrace",
+      "facebook": "https://facebook.com/doggyrace"
+    }
+  }
+}

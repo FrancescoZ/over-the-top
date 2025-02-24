@@ -1,0 +1,162 @@
+{
+  "common": {
+    "viewAllEvents": "Vedi tutti gli eventi",
+    "learnMore": "Scopri di più",
+    "close": "Chiudi",
+    "menu": "Menu",
+    "needHelp": "Hai bisogno di aiuto? Contattaci a:",
+    "visitWebsite": "Visita il Sito Web"
+  },
+  "nav": {
+    "home": "Home",
+    "info": "Info",
+    "raceCalendar": "Calendario Gare",
+    "sponsors": "Sponsor",
+    "contact": "Contatti"
+  },
+  "sections": {
+    "upcomingEvents": "Prossimi Eventi",
+    "ourSponsors": "I Nostri Sponsor"
+  },
+  "footer": {
+    "tagline": "Portiamo gioia ai cani e ai loro proprietari attraverso l'emozione delle competizioni di agilità.",
+    "contactUs": "Contattaci",
+    "followUs": "Seguici",
+    "allRightsReserved": "© 2025 DoggyRace. Tutti i diritti riservati.",
+    "switchLanguage": "Cambia lingua"
+  },
+  "404": {
+    "title": "Ops! Pagina Non Trovata",
+    "message": "Sembra che questa pagina sia scappata! Non preoccuparti, puoi sempre tornare alla home.",
+    "backHome": "Torna alla Home"
+  },
+  "hero": {
+    "title": "Benvenuti a DoggyRace",
+    "subtitle": "Dove Ogni Cane è un Campione",
+    "description": "Unisciti a noi nel mondo emozionante delle competizioni di agilità canina. Vivi l'emozione di vedere questi incredibili atleti gareggiare e mostrare le loro abilità.",
+    "learnMore": "Scopri di Più"
+  },
+  "info": {
+    "title": "Chi Siamo",
+    "subtitle": "La Tua Piattaforma Premier per le Competizioni di Agility Dog",
+    "mission": {
+      "title": "La Nostra Missione",
+      "description": "Ci dedichiamo alla promozione dello sport dell'agility dog e alla creazione di una vivace comunità di appassionati di cani. La nostra piattaforma connette conduttori, istruttori e spettatori, rendendo le competizioni di agility più accessibili e divertenti per tutti."
+    },
+    "values": {
+      "title": "I Nostri Valori",
+      "safety": {
+        "title": "Sicurezza Prima di Tutto",
+        "description": "Il benessere di tutti i cani e i conduttori è la nostra massima priorità"
+      },
+      "community": {
+        "title": "Comunità",
+        "description": "Costruire forti connessioni tra gli appassionati di sport cinofili"
+      },
+      "excellence": {
+        "title": "Eccellenza",
+        "description": "Promuovere i più alti standard negli sport di agility dog"
+      }
+    },
+    "join": {
+      "title": "Unisciti alla Nostra Comunità",
+      "description": "Che tu sia un principiante o un conduttore esperto, c'è un posto per te in DoggyRace"
+    },
+    "courses": {
+      "title": "I Nostri Corsi e Discipline",
+      "subtitle": "Scopri la nostra gamma di programmi di addestramento",
+      "agility": {
+        "title": "Agility Dog",
+        "description": "Padroneggia i percorsi ad ostacoli con velocità e precisione"
+      },
+      "obedience": {
+        "title": "Addestramento all'Obbedienza",
+        "description": "Costruisci una solida base di comandi e controllo"
+      },
+      "rally": {
+        "title": "Rally Obedience",
+        "description": "Combina agility con obbedienza in percorsi dinamici"
+      },
+      "freestyle": {
+        "title": "Freestyle Canino",
+        "description": "Routine creative che combinano obbedienza e danza"
+      },
+      "puppy": {
+        "title": "Addestramento Cuccioli",
+        "description": "Socializzazione precoce e addestramento base per cuccioli"
+      },
+      "tricks": {
+        "title": "Trucchi Avanzati",
+        "description": "Impara trucchi impressionanti e comportamenti complessi"
+      },
+      "therapy": {
+        "title": "Addestramento Cani da Terapia",
+        "description": "Prepara il tuo cane per il lavoro terapeutico e le certificazioni"
+      },
+      "competition": {
+        "title": "Preparazione Competizioni",
+        "description": "Addestramento specializzato per eventi competitivi"
+      }
+    },
+    "location": {
+      "title": "Dove Siamo",
+      "subtitle": "Visita le nostre strutture di addestramento",
+      "address": "Indirizzo",
+      "directions": "Indicazioni Stradali"
+    }
+  },
+  "sponsors": {
+    "subtitle": "Incontra le aziende che supportano la nostra missione e rendono possibili i nostri eventi",
+    "title": "I Nostri Sponsor"
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Mettiti in contatto con il nostro team",
+    "form": {
+      "name": "Il Tuo Nome",
+      "email": "La Tua Email",
+      "subject": "Oggetto",
+      "message": "Messaggio",
+      "submit": "Invia Messaggio",
+      "success": "Grazie! Ti risponderemo presto.",
+      "error": "Ops! Qualcosa è andato storto. Riprova."
+    },
+    "info": {
+      "title": "Informazioni di Contatto",
+      "address": "Indirizzo",
+      "phone": "Telefono",
+      "email": "Email",
+      "social": "Seguici"
+    }
+  },
+  "calendar": {
+    "title": "Calendario Gare",
+    "subtitle": "Unisciti a noi per eventi emozionanti durante tutto l'anno",
+    "filters": {
+      "all": "Tutti gli Eventi",
+      "competition": "Competizioni",
+      "workshop": "Workshop",
+      "training": "Allenamento"
+    },
+    "event": {
+      "date": "Data",
+      "time": "Ora",
+      "location": "Luogo",
+      "instructor": "Istruttore",
+      "capacity": "Capacità",
+      "price": "Prezzo",
+      "requirements": "Requisiti",
+      "spots": {
+        "available": "{{count}} posti disponibili",
+        "left": "Solo {{count}} posti rimasti!",
+        "full": "Evento Completo"
+      },
+      "register": "Registrati Ora",
+      "soldOut": "Esaurito"
+    },
+    "views": {
+      "calendar": "Vista Calendario",
+      "list": "Vista Lista"
+    }
+  }
+}

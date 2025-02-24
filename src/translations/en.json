@@ -1,0 +1,161 @@
+{
+  "common": {
+    "viewAllEvents": "View all events",
+    "learnMore": "Learn More",
+    "close": "Close",
+    "menu": "Menu",
+    "needHelp": "Need help? Contact us at:",
+    "visitWebsite": "Visit Website"
+  },
+  "nav": {
+    "home": "Home",
+    "info": "Info",
+    "raceCalendar": "Race Calendar",
+    "sponsors": "Sponsors",
+    "contact": "Contact"
+  },
+  "sections": {
+    "upcomingEvents": "Upcoming Events",
+    "ourSponsors": "Our Sponsors"
+  },
+  "footer": {
+    "tagline": "Bringing joy to dogs and their owners through the excitement of agility competitions.",
+    "contactUs": "Contact Us",
+    "followUs": "Follow Us",
+    "allRightsReserved": "© 2025 DoggyRace. All rights reserved."
+  },
+  "404": {
+    "title": "Oops! Page Not Found",
+    "message": "Looks like this page has run away! Don't worry, you can always go back home.",
+    "backHome": "Go Back Home"
+  },
+  "hero": {
+    "title": "Welcome to DoggyRace",
+    "subtitle": "Where Every Dog is a Champion",
+    "description": "Join us in the exciting world of dog agility competitions. Experience the thrill of watching these amazing athletes compete and showcase their skills.",
+    "learnMore": "Learn More"
+  },
+  "info": {
+    "title": "About DoggyRace",
+    "subtitle": "Your Premier Dog Agility Competition Platform",
+    "mission": {
+      "title": "Our Mission",
+      "description": "We are dedicated to promoting the sport of dog agility and creating a vibrant community of dog enthusiasts. Our platform connects handlers, trainers, and spectators, making agility competitions more accessible and enjoyable for everyone."
+    },
+    "values": {
+      "title": "Our Values",
+      "safety": {
+        "title": "Safety First",
+        "description": "The well-being of all dogs and handlers is our top priority"
+      },
+      "community": {
+        "title": "Community",
+        "description": "Building strong connections between dog sport enthusiasts"
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "Promoting the highest standards in dog agility sports"
+      }
+    },
+    "join": {
+      "title": "Join Our Community",
+      "description": "Whether you're a beginner or an experienced handler, there's a place for you at DoggyRace"
+    },
+    "courses": {
+      "title": "Our Courses & Disciplines",
+      "subtitle": "Discover our range of training programs",
+      "agility": {
+        "title": "Dog Agility",
+        "description": "Master obstacle courses with speed and precision"
+      },
+      "obedience": {
+        "title": "Obedience Training",
+        "description": "Build a strong foundation of commands and control"
+      },
+      "rally": {
+        "title": "Rally Obedience",
+        "description": "Combine agility with obedience in dynamic courses"
+      },
+      "freestyle": {
+        "title": "Canine Freestyle",
+        "description": "Creative routines combining obedience and dance"
+      },
+      "puppy": {
+        "title": "Puppy Training",
+        "description": "Early socialization and basic training for young dogs"
+      },
+      "tricks": {
+        "title": "Advanced Tricks",
+        "description": "Learn impressive tricks and complex behaviors"
+      },
+      "therapy": {
+        "title": "Therapy Dog Training",
+        "description": "Prepare your dog for therapeutic work and certifications"
+      },
+      "competition": {
+        "title": "Competition Prep",
+        "description": "Specialized training for competitive events"
+      }
+    },
+    "location": {
+      "title": "Find Us",
+      "subtitle": "Visit our training facilities",
+      "address": "Address",
+      "directions": "Get Directions"
+    }
+  },
+  "sponsors": {
+    "subtitle": "Meet the companies that support our mission and make our events possible",
+    "title": "Our Sponsors"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Thank you! We'll get back to you soon.",
+      "error": "Oops! Something went wrong. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "social": "Follow Us"
+    }
+  },
+  "calendar": {
+    "title": "Race Calendar",
+    "subtitle": "Join us for exciting events throughout the year",
+    "filters": {
+      "all": "All Events",
+      "competition": "Competitions",
+      "workshop": "Workshops",
+      "training": "Training"
+    },
+    "event": {
+      "date": "Date",
+      "time": "Time",
+      "location": "Location",
+      "instructor": "Instructor",
+      "capacity": "Capacity",
+      "price": "Price",
+      "requirements": "Requirements",
+      "spots": {
+        "available": "{{count}} spots available",
+        "left": "Only {{count}} spots left!",
+        "full": "Event Full"
+      },
+      "register": "Register Now",
+      "soldOut": "Sold Out"
+    },
+    "views": {
+      "calendar": "Calendar View",
+      "list": "List View"
+    }
+  }
+}
